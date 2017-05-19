@@ -13,7 +13,7 @@ WORKDIR /app
 RUN adduser -D myuser
 USER myuser
 
-EXPOSE 3001
+EXPOSE 80
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
