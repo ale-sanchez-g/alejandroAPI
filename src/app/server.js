@@ -15,7 +15,7 @@ app.get('/listUsers', function (req, res) {
 });
 
 
-var server = app.listen(80, function () {
+var server = app.listen(3001, function () {
 
     var host = "127.0.0.1";
     var port = server.address().port;
