@@ -6,7 +6,7 @@ RUN apk add --update curl && \
     rm -rf /var/cache/apk/*
 
 # Add our code
-ADD ./src /app
+ADD ./app /app
 WORKDIR /app
 
 # Run the image as a non-root user
