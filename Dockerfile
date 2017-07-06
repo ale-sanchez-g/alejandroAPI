@@ -8,7 +8,5 @@ WORKDIR /app
 RUN gem install unf_ext
 RUN bundle install
 
-EXPOSE 3001
-
 # Run the app.
 CMD ["npm", "start"]
