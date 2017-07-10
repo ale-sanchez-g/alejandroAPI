@@ -18,10 +18,13 @@ Simple API to return my details
 
     - / => give the name of the API
     - /password => provides a password
-    - /listUsers => list of users test
+    - /palabras => provides a password in Spanish
+    - /worts => provides a password in German
+    - /giphy/:term => search the top 10 giphy of that kind
 
 ## Heroku load
 
     - heroku container:login
-    - heroku create
+    - herokhu create
     - heroku container:push --app <heroku_app_name>
+      * heroku container:push --app immense-earth-98124
