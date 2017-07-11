@@ -1,5 +1,18 @@
 # alejandroAPI
 
+Live Demo: 
+
+[API home](https://guarded-scrubland-78590.herokuapp.com/)
+
+[API Password](https://guarded-scrubland-78590.herokuapp.com/password)
+[API Spanish Password](https://guarded-scrubland-78590.herokuapp.com/palabras)
+[API German Password](https://guarded-scrubland-78590.herokuapp.com/worts)
+[API Password Help](https://guarded-scrubland-78590.herokuapp.com/help)
+
+[API Trump Giphy](https://guarded-scrubland-78590.herokuapp.com/giphy/trump)
+
+
+
 ## Introduction
 Simple API to return my details
 
@@ -29,7 +42,7 @@ Simple API to return my details
     - heroku create
     
     - heroku container:push --app <heroku_app_name>
-      * heroku container:push immense-earth-98124
+      * heroku container:push guarded-scrubland-78590
     or
     - docker tag <image> registry.heroku.com/<app>/<process-type>
     - docker push registry.heroku.com/<app>/<process-type>
