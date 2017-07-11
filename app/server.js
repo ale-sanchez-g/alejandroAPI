@@ -1,7 +1,8 @@
 var request = require("request");
+
+var exec = require('child_process').exec;
 var express = require('./node_modules/express');
 var html = require("./templates/page.js");
-const genPass = require('./passwordGenerator.js');
 var app = express();
 var fs = require("fs");
 
@@ -48,9 +49,14 @@ app.get('/:leng', function (req, res) {
 
     //set language base on route
     var leng = req.params.leng;
-    var passwd = genPass(leng).replace('\n', '');
-    res.json({ password: passwd });
+    exec(`ruby rubyPassword.rb ${leng}`, function (error, stdout) {
+        if (error) console.log(error);
 
+        passWd = stdout.replace('\n', '');
+
+        res.json({ password: passWd });
+
+    });
 });
 
 var port = process.env.PORT || 8080;        // set our port
