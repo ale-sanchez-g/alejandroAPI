@@ -23,8 +23,13 @@ Simple API to return my details
     - /giphy/:term => search the top 10 giphy of that kind
 
 ## Heroku load
-
-    - heroku container:login
-    - herokhu create
+    
+    - heroko login
+    - heroku container:login || docker login --username=_ --password=$(heroku auth:token) registry.heroku.com
+    - heroku create
+    
     - heroku container:push --app <heroku_app_name>
-      * heroku container:push --app immense-earth-98124
+      * heroku container:push immense-earth-98124
+    or
+    - docker tag <image> registry.heroku.com/<app>/<process-type>
+    - docker push registry.heroku.com/<app>/<process-type>
