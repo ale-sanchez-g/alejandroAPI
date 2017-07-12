@@ -48,7 +48,11 @@ app.get('/giphy/:tagName', function (req, res) {
 app.get('/:leng', function (req, res) {
 
     //set language base on route
-    const leng = req.params.leng;
+    var leng = req.params.leng;
+
+    //backword compatible
+    if (len=g='password'){leng='words'};
+
     exec(`ruby rubyPassword.rb ${leng}`, function (error, stdout) {
         if (error) console.log(error);
 
