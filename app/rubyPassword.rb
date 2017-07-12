@@ -7,7 +7,7 @@ opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: server COMMAND [OPTIONS]"
   opt.separator  ""
   opt.separator  "Commands"
-  opt.separator  "     password: creates english password"
+  opt.separator  "     words: creates english password"
   opt.separator  "     palabras: crea contrasena en espanol"
   opt.separator  "     worts: Erstellt deutsches Passwort"
   opt.separator  ""
@@ -18,6 +18,9 @@ opt_parser = OptionParser.new do |opt|
     options[:complexity] = complexity
   end
 
+  opt.on_tail("-s","--special","If you want special characters") do |specialChar|
+    options[:specialChar] = specialChar
+  end
 end
 
 opt_parser.parse!
@@ -28,13 +31,15 @@ else
   @times = options[:complexity].to_i
 end
 
-case ARGV[0]
-  when "password"
-    STDOUT.puts Bxm::Password.rand_key(@times).to_s
-  when "palabras"
-    STDOUT.puts Bxm::Password.rand_key(@times,"palabras").to_s
-  when "worts"
-    STDOUT.puts Bxm::Password.rand_key(@times,"worts").to_s
-  else
-    puts opt_parser
+if options[:specialChar] == nil
+  @specialChar = false
+else
+  @specialChar = true
+end
+
+
+if ARGV[0] == "words" || ARGV[0] == "palabras" || ARGV[0] == "worts"
+  STDOUT.puts Bxm::Password.rand_key(@times,ARGV[0],@specialChar).to_s
+else
+  puts opt_parser
 end
