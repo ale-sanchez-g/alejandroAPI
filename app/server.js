@@ -49,6 +49,10 @@ app.get('/:leng', function (req, res) {
 
     //set language base on route
     var leng = req.params.leng;
+
+    //backword compatible
+    if (len=g='password'){leng='words'};
+
     exec(`ruby rubyPassword.rb ${leng}`, function (error, stdout) {
         if (error) console.log(error);
 
@@ -58,6 +62,32 @@ app.get('/:leng', function (req, res) {
 
     });
 });
+
+// routes will go here
+app.get('/api/password', function(req, res) {
+    var wordCount = req.query.number;
+    const leng = req.query.language;
+    const specl = req.query.special;
+    var character;
+
+    if (specl=='true'){
+        character = ' -s'
+    } else {
+        character = ''
+    };
+
+    if (wordCount == null){
+        wordCount = 4;
+    };
+
+    exec(`ruby rubyPassword.rb ${leng} -c ${wordCount}${character}`, function (error, stdout) {
+        if (error) console.log(error);
+
+        passWd = stdout.replace('\n', '');
+
+        res.json({ password: passWd });
+
+    });});
 
 var port = process.env.PORT || 8080;        // set our port
 
