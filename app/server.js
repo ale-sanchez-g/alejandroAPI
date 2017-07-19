@@ -51,7 +51,7 @@ app.get('/:leng', function (req, res) {
     var leng = req.params.leng;
 
     //backword compatible
-    if (len=g='password'){leng='words'};
+        if ( leng=='password' ){leng='words'};
 
     exec(`ruby rubyPassword.rb ${leng}`, function (error, stdout) {
         if (error) console.log(error);
