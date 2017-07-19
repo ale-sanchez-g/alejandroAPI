@@ -5,8 +5,14 @@ Live Demo:
 [API home](https://guarded-scrubland-78590.herokuapp.com/)
 
 [API Password](https://guarded-scrubland-78590.herokuapp.com/password)
+
 [API Spanish Password](https://guarded-scrubland-78590.herokuapp.com/palabras)
+
 [API German Password](https://guarded-scrubland-78590.herokuapp.com/worts)
+
+[API Flexy Password](https://guarded-scrubland-78590.herokuapp.com/api/password?number=5&language=palabras&special=true)
+
+
 [API Password Help](https://guarded-scrubland-78590.herokuapp.com/help)
 
 [API Trump Giphy](https://guarded-scrubland-78590.herokuapp.com/giphy/trump)
