@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'bxm',  '>=0.2.3'
+gem 'mkpasswd', '>=0.1.0'

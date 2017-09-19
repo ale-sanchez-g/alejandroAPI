@@ -63,6 +63,20 @@ app.get('/:leng', function (req, res) {
     });
 });
 
+app.get('/api/hash', function (req, res) {
+
+    //send password in query
+    var basePasswd = req.query.passwd;
+
+    exec(`mkpasswd -m sha-512 ${basePasswd}`, function (error, stdout) {
+        if (error) console.log(error);
+
+        passWd = stdout.replace('\n', '');
+
+        res.json({ password: passWd, actual: basePasswd });
+    });
+});
+
 // routes will go here
 app.get('/api/password', function(req, res) {
     var wordCount = req.query.number;

@@ -12,6 +12,8 @@ Live Demo:
 
 [API Flexy Password](https://guarded-scrubland-78590.herokuapp.com/api/password?number=5&language=palabras&special=true)
 
+[API Hash Password](https://guarded-scrubland-78590.herokuapp.com/api/hash?password=mypassword)
+
 
 [API Password Help](https://guarded-scrubland-78590.herokuapp.com/help)
 
@@ -41,11 +43,12 @@ Simple API to return my details
     - /worts => provides a password in German
     - /giphy/:term => search the top 10 giphy of that kind
     - /api/password?number=5&language=palabras&special=true => provides a password in spanish with special characters
+    - /api/hash?password=mypassword => provides a SHA512 password created with mkpasswd
    
 
 ## Heroku load
     
-    - heroko login
+    - heroku login
     - heroku container:login || docker login --username=_ --password=$(heroku auth:token) registry.heroku.com
     - heroku create
     
