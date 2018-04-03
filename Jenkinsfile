@@ -16,7 +16,7 @@ pipeline {
           sh 'curl guarded-scrubland-78590.herokuapp.com'
         },
         ('Get a API service response to Path'): {
-          sh 'echo test 2'       
+          sh 'curl guarded-scrubland-78590.herokuapp.com/words'       
         },
         ('Construct my own password'): {
           sh 'curl google.com'
