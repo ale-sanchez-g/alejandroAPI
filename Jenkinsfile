@@ -13,7 +13,7 @@ pipeline {
       steps{
         parallel(
         ('Call the API service'): {
-          sh 'echo test 1'
+          sh 'curl guarded-scrubland-78590.herokuapp.com'
         },
         ('Get a API service response to Path'): {
           sh 'echo test 2'       
