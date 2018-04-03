@@ -19,7 +19,7 @@ pipeline {
           sh 'echo test 2'       
         },
         ('Construct my own password'): {
-          sh 'curl google.com
+          sh 'curl google.com'
         }          
         )
       }
