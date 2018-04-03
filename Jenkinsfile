@@ -6,26 +6,20 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo build'
+        sh 'npm intall'
       }
     }
     stage('Run test in parallel') {
       steps{
         parallel(
         ('Call the API service'): {
-          sh'''#!/bin/bash -xe
-            curl https://guarded-scrubland-78590.herokuapp.com/
-          '''
+          sh 'echo test 1'
         },
         ('Get a API service response to Path'): {
-          sh'''#!/bin/bash -xe
-            curl https://guarded-scrubland-78590.herokuapp.com/words
-          '''        
+          sh 'echo test 2'       
         },
         ('Construct my own password'): {
-          sh'''#!/bin/bash -xe
-            curl https://guarded-scrubland-78590.herokuapp.com/api/password?number=5&language=palabras&special=true
-          '''
+          sh 'echo test 3'
         }          
         )
       }
