@@ -3,9 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -f Dockerfile -t morsisdivine:alejandroapi .'
-        sh 'docker run --rm -it -p 80:3001  -d morsisdivine:alejandroapi'
-        sh 'curl http://localhost:80/'
+        sh 'echo build'
       }
     }
     stage('Run test in parallel') {
