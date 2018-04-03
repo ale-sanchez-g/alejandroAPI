@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm intall'
+        sh 'echo build'
       }
     }
     stage('Run test in parallel') {
@@ -19,7 +19,7 @@ pipeline {
           sh 'echo test 2'       
         },
         ('Construct my own password'): {
-          sh 'echo test 3'
+          sh 'curl google.com
         }          
         )
       }
