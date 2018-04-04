@@ -19,7 +19,7 @@ pipeline {
           sh 'curl guarded-scrubland-78590.herokuapp.com/words'       
         },
         ('Construct my own password'): {
-          sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com /api/password?number=5&language=palabras&special=true")
+          sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/api/password?number=5&language=palabras&special=true")
           echo $response
           '''
         }          
