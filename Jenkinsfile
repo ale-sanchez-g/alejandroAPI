@@ -11,7 +11,7 @@ pipeline {
         git checkout test/oceanblue
         npm install
         PORT=3001 nohup npm start >> app.log 2>&1 &
-        wait
+        sleep 5
         curl localhost:3001/words
         cd ~
         '''
