@@ -44,7 +44,7 @@ pipeline {
         sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
             echo $response
         '''
-        sh 'newman run Qantas_API_challenge.postman_collection.json'
+        sh 'ls && newman run Qantas_API_challenge.postman_collection.json'
       }
     }
     stage('Deployed to STG') {
