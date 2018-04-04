@@ -2,11 +2,16 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
   }
-  agent any
+    agent {
+      docker {
+        image 'node:6-alpine'
+        args '-p 3000:3000'
+    }
+  }
   stages {
     stage('Build') {
       steps {
-        sh 'echo build'
+        sh 'npm install'
       }
     }
     stage('Run test in parallel') {
