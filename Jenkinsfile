@@ -61,8 +61,3 @@ pipeline {
     }
   }
 }
-post {
-  always {
-          sh 'rmdir -f alejandroAPI || true'
-  }
-}
