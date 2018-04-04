@@ -10,7 +10,7 @@ pipeline {
         cd alejandroAPI/app
         git checkout test/oceanblue
         npm install
-        PORT=3001 npm run --silent start || true
+        PORT=3001 nohup npm start >> app.log 2>&1 &
         curl localhost:3001/words
         cd ..
         '''
