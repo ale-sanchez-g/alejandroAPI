@@ -13,13 +13,21 @@ pipeline {
       steps{
         parallel(
         ('Call the API service'): {
-          sh 'curl guarded-scrubland-78590.herokuapp.com'
-        },
+          sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/")
+          echo $response
+          '''        },
         ('Get a API service response to Path'): {
-          sh 'curl guarded-scrubland-78590.herokuapp.com/words'       
+          sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/words")
+          echo $response
+          '''
         },
         ('Construct my own password'): {
           sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/api/password?number=5&language=palabras&special=true")
+          echo $response
+          '''
+        },
+        ('get API help'): {
+          sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/api")
           echo $response
           '''
         }          
