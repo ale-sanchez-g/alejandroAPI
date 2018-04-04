@@ -30,16 +30,23 @@ pipeline {
             sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/api")
             echo $response
             '''
-          },
-          ('Integration with Forest App'): {
-            sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
-            echo $response
-            '''
           }
         )
       }
     }
-    stage('Deployed') {
+    stage('Deployed to UAT') {
+      steps{
+        sh 'echo completed'
+      }
+    }
+    stage('Run test Integration') {
+      steps{
+        sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
+            echo $response
+        '''
+      }
+    }
+    stage('Deployed to STG') {
       steps{
         sh 'echo completed'
       }
