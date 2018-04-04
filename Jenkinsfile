@@ -57,8 +57,9 @@ pipeline {
           },
           ("Newman test from remote collection"):{
             sh ''' npm install newman -g
-            newman run https://raw.githubusercontent.com/asanchezgiraldo/postman-collections/master/Qantas%20API%20challenge.postman_collection.json
+            newman run https://raw.githubusercontent.com/asanchezgiraldo/postman-collections/master/Qantas%20API%20challenge.postman_collection.json -r junit
             '''
+            junit 'newman/*.xml'
           }
         )
       }
