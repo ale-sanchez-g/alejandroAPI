@@ -49,9 +49,18 @@ pipeline {
     }
     stage('Run test Integration') {
       steps{
-        sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
-            echo $response
-        '''
+        parallel(
+          ("Integration test wit forest"):{
+            sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
+              echo $response
+            '''
+          },
+          ("Newman test from remote collection"):{
+            sh ''' npm install newman -g
+            newman run https://raw.githubusercontent.com/asanchezgiraldo/postman-collections/master/Qantas%20API%20challenge.postman_collection.json
+            '''
+          }
+        )
       }
     }
     stage('Deployed to STG') {
