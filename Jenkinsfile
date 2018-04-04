@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo "test"'
+        sh 'echo build'
       }
     }
     stage('Run test in parallel') {
