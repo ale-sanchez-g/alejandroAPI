@@ -3,7 +3,6 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
   }
   agent any
-  }
   stages {
     stage('Build') {
       steps {
@@ -31,7 +30,12 @@ pipeline {
           sh '''response=$(curl -sb -H "Accept: application/json" "http://guarded-scrubland-78590.herokuapp.com/api")
           echo $response
           '''
-        }          
+        }
+      stage('Deployed') {
+        steps{
+          sh 'echo completed'
+        }
+      }
         )
       }
     }
