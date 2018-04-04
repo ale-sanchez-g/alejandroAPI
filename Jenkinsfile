@@ -6,7 +6,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo build'
+        sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git
+        git checkout test/oceanblue
+        newman run Qantas_API_challenge.postman_collection.json'
       }
     }
     stage('Run test in parallel') {
@@ -44,7 +46,6 @@ pipeline {
         sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
             echo $response
         '''
-        sh 'ls && newman run Qantas_API_challenge.postman_collection.json'
       }
     }
     stage('Deployed to STG') {
