@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git
+        sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
         git checkout test/oceanblue
         newman run Qantas_API_challenge.postman_collection.json
         '''
