@@ -7,9 +7,11 @@ pipeline {
     stage('Build') {
       steps {
         sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
-        cd alejandroAPI
+        cd alejandroAPI/app
         git checkout test/oceanblue
-        newman run Qantas_API_challenge.postman_collection.json
+        npm install
+        npm start
+        curl localhost:3001/words
         cd ..
         '''
       }
