@@ -31,6 +31,11 @@ pipeline {
             echo $response
             '''
           }
+          ('Integration with Forest App'): {
+            sh '''response=$(curl -sb -H "Accept: application/json" "https://mysterious-forest-66057.herokuapp.com/password/english")
+            echo $response
+            '''
+          }
         )
       }
     }
