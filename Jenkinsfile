@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
         cd alejandroAPI/app
-        git checkout ${BRANCH}
+        git checkout ${BRANCH_NAME}
         . ~/.nvm/nvm.sh
         npm install
         PORT=3001 nohup npm start >> app.log 2>&1 &
