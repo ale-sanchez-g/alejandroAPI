@@ -6,10 +6,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
+        sh '''. ~/.nvm/nvm.sh
+        nvm ls
+        git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
         cd alejandroAPI/app
         git checkout ${BRANCH_NAME}
-        . ~/.nvm/nvm.sh
         npm install
         PORT=3001 nohup npm start >> app.log 2>&1 &
         sleep 5
