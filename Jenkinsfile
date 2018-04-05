@@ -6,8 +6,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''. ~/.nvm/nvm.sh
-        nvm ls
+        sh '''node --version
         git clone https://github.com/ale-sanchez-g/alejandroAPI.git && wait
         cd alejandroAPI/app
         git checkout ${BRANCH_NAME}
