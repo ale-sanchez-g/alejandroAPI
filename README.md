@@ -28,9 +28,16 @@ Simple API to return my details
 
 
 ## Running app locally
+```bash
+docker build -f Dockerfile -t morsisdivine:alejandroapi .
+docker run --rm -it -p 8080:8080  -d morsisdivine:alejandroapi
+```
 
-    - docker build -f Dockerfile -t morsisdivine:alejandroapi .
-    - docker run --rm -it -p 80:3001  -d morsisdivine:alejandroapi
+## Run app from dockerimage
+
+```bash
+docker run --rm -it -p 8080:8080  -d morsisdivine/alejandroapi
+```
 
 ## Running tests
 
