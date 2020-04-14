@@ -53,6 +53,20 @@ Production
 newman run Guarded\ Scrubland\ Password\ API.postman_collection.json --env-var url='https://guarded-scrubland-78590.herokuapp.com'
 ```
 
+Karate Run
+
+```bash
+cd alejandroapi
+mvn clean test
+```
+
+Performance test
+
+```bash
+cd k6
+k6 run --vus 10 --duration 30s perf.spec.js
+```
+
 ## Endpoints
 
     - / => give the name of the API
