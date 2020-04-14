@@ -41,6 +41,17 @@ docker run --rm -it -p 8080:8080  -d morsisdivine/alejandroapi
 
 ## Running tests
 
+Local
+
+```bash
+newman run Guarded\ Scrubland\ Password\ API.postman_collection.json --env-var url='http://localhost:8080'
+```
+
+Production
+
+```bash
+newman run Guarded\ Scrubland\ Password\ API.postman_collection.json --env-var url='https://guarded-scrubland-78590.herokuapp.com'
+```
 
 ## Endpoints
 
