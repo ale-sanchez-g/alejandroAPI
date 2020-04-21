@@ -2,3 +2,6 @@
 .idea
 /app/node_modules
 *.iml
+alejandroapi/.settings
+alejandroapi/.project
+alejandroapi/target/
