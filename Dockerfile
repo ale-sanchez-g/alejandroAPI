@@ -1,5 +1,5 @@
 #Grab the latest alpine image
-FROM starefossen/ruby-node:2-6
+FROM starefossen/ruby-node:latest
 
 # Add our code
 ADD ./app /app
