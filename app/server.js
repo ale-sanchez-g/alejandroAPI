@@ -34,14 +34,15 @@ app.get('/giphy/:tagName', function (req, res) {
             rating: 'G',
             lang: 'en' },
         headers:
-        { 'postman-token': '806dc5a5-431e-f3cd-9642-05a4c1085261',
-            'cache-control': 'no-cache' } };
+        { 'cache-control': 'no-cache' } 
+    };
 
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
 
         var dataRes = JSON.parse(body);
-        var giphyPick = randomIntInc(99,0);
+        var giphyPick = randomIntInc(50,0);
+        console.log("selecting from " + giphyPick);
         var htmlResponse = html.page().replace("string_to_replace", dataRes.data[giphyPick].embed_url);
 
         console.log(dataRes.data[giphyPick].embed_url);
