@@ -23,6 +23,7 @@
         - cat app/public/version.json
         - cd app
         - npm install
+        - cd ..
       on_success:
         - chmod u+x heroku.sh
         - if [ "$BRANCH" == "master" ]; then ./heroku.sh; fi
