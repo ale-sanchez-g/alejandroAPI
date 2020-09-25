@@ -26,7 +26,7 @@
         - cd ..
       on_success:
         - chmod u+x heroku.sh
-        - if [ "$BRANCH" !== "master" ]; then ./heroku.sh; fi
+        - if [ "$BRANCH" == "master" ]; then ./heroku.sh; fi
 
     integrations:
       hub:
