@@ -16,6 +16,11 @@ app.get('/', function (req, res) {
         res.end( "ALEJANDRO-API" );
 });
 
+app.get('/version', function (req, res) {
+    fs.readFile(__dirname + `/public/version.json`, 'utf8', (err, text) => {
+        res.send(text);
+    });
+});
 app.get('/giphy/:tagName', function (req, res) {
     var tagN = req.params.tagName;
 
